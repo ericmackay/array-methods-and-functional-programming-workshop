@@ -46,7 +46,7 @@ function every(predicate, theArray) {
 }
 
 function some(predicate, theArray) {
- for (var i = 0; i < theArray.length; i++) { // run through the function 
+  for (var i = 0; i < theArray.length; i++) { // run through the function 
     if  (predicate(theArray[i]) || !predicate(theArray[i])){ // if one of the elements is true or some are false
        return true; // return true
     }
@@ -55,8 +55,13 @@ function some(predicate, theArray) {
 
 
 function indexOf(item, theArray) {
-
+  for (var i = 0; i < theArray.length; i++) { // run through the function 
+    if (item === theArray[i]){  
+      return i; 
+    }
+  }   return -1;
 }
+
 
 function findIndex(predicate, theArray) {
 
