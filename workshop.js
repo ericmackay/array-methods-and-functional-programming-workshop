@@ -56,16 +56,21 @@ function some(predicate, theArray) {
 
 function indexOf(item, theArray) {
   for (var i = 0; i < theArray.length; i++) { // run through the function 
-    if (item === theArray[i]){  
-      return i; 
+    if (item === theArray[i]){  // is item = to the item at the index position in the array
+      return i; // return the index position
     }
-  }   return -1;
+  }   return -1; // otherwise return -1 
 }
 
 
 function findIndex(predicate, theArray) {
-
+for (var i = 0; i < theArray.length; i++) { // run through the function 
+    if (predicate(theArray[i])){  // call the predicate function on the array position i  
+      return theArray[i]; // if array [i]if true 
+    }
+  }   return -1; // otherwise return -1 
 }
+
 
 function first(n, theArray) {
 
