@@ -23,7 +23,13 @@ function filter(predicate, theArray) {
 }
 
 function every(predicate, theArray) {
-
+ var every=[];
+  for (var i = 0; i < theArray.length; i++) {
+    if (predicate(theArray[i])){
+      every.push(theArray[i]);
+    }
+  }
+    return every;
 }
 
 function some(predicate, theArray) {
