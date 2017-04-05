@@ -13,7 +13,13 @@ function map(mappingFunction, theArray) {
 }
 
 function filter(predicate, theArray) {
-
+  var filtered=[];
+  for (var i = 0; i < theArray.length; i++) {
+    if (predicate(theArray[i])){
+      filtered.push(theArray[i]);
+    }
+  }
+    return filtered;
 }
 
 function every(predicate, theArray) {
