@@ -12,6 +12,21 @@ function map(mappingFunction, theArray) {
   return newMap;
 }
 
+
+// map using forEach function 
+
+/* function map(mappingFunction, theArray){
+      var newArray = [];
+      
+      forEach(function(element)){
+        newArray.push(mappingFunction(element))
+      }, theArray);
+      
+      return newArray;
+}
+
+*/
+
 function filter(predicate, theArray) {
   var filtered=[];
   for (var i = 0; i < theArray.length; i++) {
@@ -23,18 +38,21 @@ function filter(predicate, theArray) {
 }
 
 function every(predicate, theArray) {
- var every=[];
-  for (var i = 0; i < theArray.length; i++) {
-    if (predicate(theArray[i])){
-      every.push(theArray[i]);
+  for (var i = 0; i < theArray.length; i++) { // run through the function 
+    if  (!predicate(theArray[i])){ // if one of the elements is false
+       return false; // return false
     }
-  }
-    return every;
+  }   return true;
 }
 
 function some(predicate, theArray) {
-
+ for (var i = 0; i < theArray.length; i++) { // run through the function 
+    if  (predicate(theArray[i]) || !predicate(theArray[i])){ // if one of the elements is true or some are false
+       return true; // return true
+    }
+  }   return false;
 }
+
 
 function indexOf(item, theArray) {
 
