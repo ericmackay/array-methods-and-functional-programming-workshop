@@ -1,17 +1,15 @@
 function forEach(callback, theArray) {
-  /*
-  This is a little hint to get you started ;)
-  
-  for (... theArray.length ...) {
-    ...
-    callback(...)
-    ...
+  for (var i = 0; i < theArray.length; i++) {
+    callback(theArray[i]);
   }
-  */
 }
 
 function map(mappingFunction, theArray) {
-
+  var newMap=[];
+  for (var i = 0; i < theArray.length; i++) {
+    newMap.push(mappingFunction(theArray[i]));
+  }
+  return newMap;
 }
 
 function filter(predicate, theArray) {
