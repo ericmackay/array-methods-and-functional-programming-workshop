@@ -91,7 +91,7 @@ function last(n, theArray) {
 
 }
 function pluck(property, arrayOfObjects) {
-
+    return arrayOfObjects.map(function (whateverTheShit){ return whateverTheShit[property]});
 }
 
 function flatten(theArray) {
