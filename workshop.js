@@ -5,7 +5,7 @@ function forEach(callback, theArray) {
 }
 
 function map(mappingFunction, theArray) {
-  var newMap=[];
+  var newMap = [];
   for (var i = 0; i < theArray.length; i++) {
     newMap.push(mappingFunction(theArray[i]));
   }
@@ -28,58 +28,68 @@ function map(mappingFunction, theArray) {
 */
 
 function filter(predicate, theArray) {
-  var filtered=[];
+  var filtered = [];
   for (var i = 0; i < theArray.length; i++) {
-    if (predicate(theArray[i])){
+    if (predicate(theArray[i])) {
       filtered.push(theArray[i]);
     }
   }
-    return filtered;
+  return filtered;
 }
 
 function every(predicate, theArray) {
   for (var i = 0; i < theArray.length; i++) { // run through the function 
-    if  (!predicate(theArray[i])){ // if one of the elements is false
-       return false; // return false
+    if (!predicate(theArray[i])) { // if one of the elements is false
+      return false; // return false
     }
-  }   return true;
+  }
+  return true;
 }
 
 function some(predicate, theArray) {
   for (var i = 0; i < theArray.length; i++) { // run through the function 
-    if  (predicate(theArray[i]) || !predicate(theArray[i])){ // if one of the elements is true or some are false
-       return true; // return true
+    if (predicate(theArray[i]) || !predicate(theArray[i])) { // if one of the elements is true or some are false
+      return true; // return true
     }
-  }   return false;
+  }
+  return false;
 }
 
 
 function indexOf(item, theArray) {
   for (var i = 0; i < theArray.length; i++) { // run through the function 
-    if (item === theArray[i]){  // is item = to the item at the index position in the array
+    if (item === theArray[i]) { // is item = to the item at the index position in the array
       return i; // return the index position
     }
-  }   return -1; // otherwise return -1 
+  }
+  return -1; // otherwise return -1 
 }
 
 
 function findIndex(predicate, theArray) {
-for (var i = 0; i < theArray.length; i++) { // run through the function 
-    if (predicate(theArray[i])){  // call the predicate function on the array position i  
-      return theArray[i]; // if array [i]if true 
+  for (var i = 0; i < theArray.length; i++) { // run through the function 
+    if (predicate(theArray[i])) { // call the predicate function on the array position i  
+      return i; // if array [i]if true 
     }
-  }   return -1; // otherwise return -1 
+  }
+  return -1; // otherwise return -1 
 }
 
 
 function first(n, theArray) {
-
+    if (Array.isArray(n)) {// is n an array 
+        return n[0]; // if n is an array return value of 0 position.
+    }
+    return theArray.slice(0,n);
 }
 
 function last(n, theArray) {
+  if (Array.isArray(n)) { // is n an array
+    return n[n.length - 1]; // return 'n' at the array length -1. 
+  }
+  return theArray.slice(-n); // returning the slice starting at (n.length - n) ending at n.length
 
 }
-
 function pluck(property, arrayOfObjects) {
 
 }
@@ -106,19 +116,19 @@ function compose2(arrOfFuncs) {
 
 /***** DO NOT EDIT AFTER THIS LINE *****/
 module.exports = {
-    forEach: forEach,
-    map: map,
-    filter: filter,
-    every: every,
-    some: some,
-    indexOf: indexOf,
-    findIndex: findIndex,
-    first: first,
-    last: last,
-    pluck: pluck,
-    flatten: flatten,
-    negate1: negate1,
-    negate2: negate2,
-    compose1: compose1,
-    compose2: compose2
+  forEach: forEach,
+  map: map,
+  filter: filter,
+  every: every,
+  some: some,
+  indexOf: indexOf,
+  findIndex: findIndex,
+  first: first,
+  last: last,
+  pluck: pluck,
+  flatten: flatten,
+  negate1: negate1,
+  negate2: negate2,
+  compose1: compose1,
+  compose2: compose2
 };
