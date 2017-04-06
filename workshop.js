@@ -69,7 +69,7 @@ function indexOf(item, theArray) {
 function findIndex(predicate, theArray) {
   for (var i = 0; i < theArray.length; i++) { // run through the function 
     if (predicate(theArray[i])) { // call the predicate function on the array position i  
-      return i; // if array [i]if true 
+      return i; // return i if true 
     }
   }
   return -1; // otherwise return -1 
@@ -84,19 +84,31 @@ function first(n, theArray) {
 }
 
 function last(n, theArray) {
-  if (Array.isArray(n)) { // is n an array
-    return n[n.length - 1]; // return 'n' at the array length -1. 
+  if (Array.isArray(n)) { // is the value of n an array
+    return n[n.length - 1]; // return 'n' value at the array length -1(last spot). 
   }
   return theArray.slice(-n); // returning the slice starting at (n.length - n) ending at n.length
 
 }
 function pluck(property, arrayOfObjects) {
-    return arrayOfObjects.map(function (whateverTheShit){ return whateverTheShit[property]});
+    return arrayOfObjects.map(function (element){ 
+      return element[property]
+    });
 }
 
 function flatten(theArray) {
-
+  var flatArray = [];
+  forEach(function(element){
+    if(Array.isArray(element)) {
+      flatArray = flatArray.concat(flatten(element))
+    }
+    else {
+      flatArray.push(element)
+    }
+  }, theArray);
+  return flatArray;
 }
+
 
 function negate1(predicate) {
 
